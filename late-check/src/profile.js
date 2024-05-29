@@ -52,7 +52,7 @@ function Profile() {
                     <div>{user.fname}</div>
                     <div>{user.lname}</div>
                     <div>{user.email}</div>
-                    <img src={user.avatar} alt={user.id}></img>
+                    <img src={user.avatar} alt={user.id} width={100}></img>
                     <div><button onClick={LogOut}>Log out</button></div>
                 </div>
             )

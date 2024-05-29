@@ -77,6 +77,7 @@ function Login() {
                 </label>
                 <input type="submit" />
             </form>
+            <a href='/register'>Register</a>
         </div>
     )
 }
