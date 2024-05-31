@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #333;
+}
+
+.body-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.container {
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 90%;
+    padding: 2rem;
+    flex-direction: column;
+    position: relative;
+}
+
+.input-file {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 2rem;
+    font-size: 2rem;
+}
+
+.upload-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2rem;
+    font-size: 2rem;
+}

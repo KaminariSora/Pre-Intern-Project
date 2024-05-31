@@ -1,0 +1,54 @@
+.Data-list {
+    border: 2px solid green;
+    width: 100%;
+    height: 80%;
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+    font-size: 2rem;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+
+.Data-table {
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Data-table th {
+    position: sticky;
+    top: 0;
+    background-color: gray;
+    padding: 8px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.Data-table th::after {
+    content: ' ▼'; /* Default sort direction indicator */
+}
+
+.Data-table th.sort-ascending::after {
+    content: ' ▼';
+}
+
+.Data-table th.sort-descending::after {
+    content: ' ▲';
+}
+
+.Data-table td {
+    /* width: calc(100% / 4); */
+    padding: 8px;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 100%;
+    background-color: black;
+}

@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const multer = require('multer');
+const csv = require('csv-parser');
+const fs = require('fs');
 const UserModel = require("./server/models/Users.js");
 
 const app = express();
@@ -14,6 +17,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/Test", {
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log("MongoDB connection error:", err));
 
+// Configure multer for file uploads
+const upload = multer({ dest: 'uploads/' });
+
 app.get('/getUsers', (req, res) => {
     UserModel.find()
     .then(users => {
@@ -23,6 +29,41 @@ app.get('/getUsers', (req, res) => {
     .catch(err => {
         console.log("Error fetching users:", err);
         res.json(err);
+    });
+});
+
+app.get('/getData', (req, res) => {
+    UserModel.find()
+    .then(Data => {
+        console.log("Data found:", Data);
+        res.json(Data);
+    })
+    .catch(err => {
+        console.log("Error fetching data:", err);
+        res.json(err);
+    });
+});
+
+app.post('/uploadCSV', upload.single('file'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).send('No file uploaded');
+    }
+
+    const filePath = req.file.path;
+    const results = [];
+
+    fs.createReadStream(filePath)
+    .pipe(csv())
+    .on('data', (data) => results.push(data))
+    .on('end', async () => {
+        try {
+            await UserModel.insertMany(results);
+            fs.unlinkSync(filePath); // Delete the file after processing
+            res.send('File uploaded and data inserted');
+        } catch (error) {
+            console.error('Error inserting data', error);
+            res.status(500).send('Error inserting data');
+        }
     });
 });
 
