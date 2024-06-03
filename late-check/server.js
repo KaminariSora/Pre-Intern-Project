@@ -1,5 +1,5 @@
-const express = require('express');
 const mongoose = require('mongoose');
+const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const csv = require('csv-parser');
@@ -17,7 +17,6 @@ mongoose.connect("mongodb://127.0.0.1:27017/Test", {
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log("MongoDB connection error:", err));
 
-// Configure multer for file uploads
 const upload = multer({ dest: 'uploads/' });
 
 app.get('/getUsers', (req, res) => {
@@ -34,9 +33,9 @@ app.get('/getUsers', (req, res) => {
 
 app.get('/getData', (req, res) => {
     UserModel.find()
-    .then(Data => {
-        console.log("Data found:", Data);
-        res.json(Data);
+    .then(data => {
+        console.log("Data found:", data);
+        res.json(data);
     })
     .catch(err => {
         console.log("Error fetching data:", err);
@@ -54,10 +53,21 @@ app.post('/uploadCSV', upload.single('file'), (req, res) => {
 
     fs.createReadStream(filePath)
     .pipe(csv())
-    .on('data', (data) => results.push(data))
+    .on('data', (data) => {
+        console.log('Parsed data:', data); 
+        results.push(data);
+    })
     .on('end', async () => {
         try {
-            await UserModel.insertMany(results);
+            //When you need to change data please check this.
+            const mappedResults = results.map(item => ({
+                time: item.time, 
+                name: item.name,
+                LastName: item.LastName,
+                Position: item.Position
+            }));
+
+            await UserModel.insertMany(mappedResults);
             fs.unlinkSync(filePath); // Delete the file after processing
             res.send('File uploaded and data inserted');
         } catch (error) {

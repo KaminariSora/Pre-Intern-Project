@@ -12,19 +12,39 @@ function ShowFileUpload() {
                 if (Array.isArray(response.data)) {
                     // Sort the data based on the 'time' column
                     const sortedData = response.data.sort((a, b) => {
-                        if (a.time > b.time) {
-                            return 1;
-                        }
-                        if (a.time < b.time) {
-                            return -1;
-                        }
-                        return 0;
+                        // if (a.time > b.time) {
+                        //     return 1;
+                        // }
+                        // if (a.time < b.time) {
+                        //     return -1;
+                        // }
+                        // return 0;
                     });
 
-                    // Mark records as 'late' if time > 9:15
+                    const parseTime = (time) => {
+                        const [hours, minutes] = time.split(':').map(Number);
+                        return { hours, minutes };
+                    };
+
+                    const isLate = (time) => {
+                        const { hours, minutes } = parseTime(time);
+                    
+                        // Check the first time range: 9:00 - 9:15
+                        if (hours === 9 && minutes >= 0 && minutes <= 15) {
+                            return false;
+                        }
+                        
+                        // Check the second time range: 12:00 - 12:15
+                        if (hours === 12 && minutes >= 0 && minutes <= 15) {
+                            return false;
+                        }
+                    
+                        return true;
+                    };
+
                     const updatedData = sortedData.map(data => ({
                         ...data,
-                        status: data.time > '9:15' ? 'late' : ''
+                        status: isLate(data.time) ? 'late' : 'onTime'
                     }));
 
                     setData(updatedData);
@@ -47,7 +67,7 @@ function ShowFileUpload() {
             <table className="Data-table">
                 <thead>
                     <tr>
-                        <th style={{ width: columnWidth }}>No.</th>
+                        {/* <th style={{ width: columnWidth }}>No.</th> */}
                         {filteredColumns.map((column, index) => (
                             <th key={index} style={{ width: columnWidth }}>{column}</th>
                         ))}
@@ -57,7 +77,7 @@ function ShowFileUpload() {
                 <tbody>
                     {rawData.map((data, index) => (
                         <tr key={index}>
-                            <td>{index + 1}</td>
+                            {/* <td>{index + 1}</td> */}
                             {filteredColumns.map((column, colIndex) => (
                                 <td key={colIndex}>{data[column]}</td>
                             ))}
