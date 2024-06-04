@@ -35,7 +35,7 @@ function ShowFileUpload() {
                         }
                         
                         // Check the second time range: 12:00 - 12:15
-                        if (hours === 12 && minutes >= 0 && minutes <= 15) {
+                        if (hours === 18 && minutes >= 0 && minutes <= 15) {
                             return false;
                         }
                     
@@ -49,9 +49,9 @@ function ShowFileUpload() {
 
                     setData(updatedData);
 
-                    if (response.data.length > 0) {
-                        setColumns(Object.keys(response.data[0]));
-                    }
+                    
+                    setColumns(Object.keys(response.data[0]));
+                    
                 } else {
                     console.log("Response is not an array:", response.data);
                 }
@@ -67,7 +67,7 @@ function ShowFileUpload() {
             <table className="Data-table">
                 <thead>
                     <tr>
-                        {/* <th style={{ width: columnWidth }}>No.</th> */}
+                        <th style={{ width: columnWidth }}>No.</th>
                         {filteredColumns.map((column, index) => (
                             <th key={index} style={{ width: columnWidth }}>{column}</th>
                         ))}
@@ -77,7 +77,7 @@ function ShowFileUpload() {
                 <tbody>
                     {rawData.map((data, index) => (
                         <tr key={index}>
-                            {/* <td>{index + 1}</td> */}
+                            <td>{index + 1}</td>
                             {filteredColumns.map((column, colIndex) => (
                                 <td key={colIndex}>{data[column]}</td>
                             ))}

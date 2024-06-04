@@ -61,10 +61,10 @@ app.post('/uploadCSV', upload.single('file'), (req, res) => {
         try {
             //When you need to change data please check this.
             const mappedResults = results.map(item => ({
-                time: item.time, 
-                name: item.name,
+                Name: item.Name || item.name, 
                 LastName: item.LastName,
-                Position: item.Position
+                Position: item.Position,
+                time: item.time, 
             }));
 
             await UserModel.insertMany(mappedResults);
