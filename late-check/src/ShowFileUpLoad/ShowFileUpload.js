@@ -21,37 +21,73 @@ function ShowFileUpload() {
                         // return 0;
                     });
 
-                    const parseTime = (time) => {
-                        const [hours, minutes] = time.split(':').map(Number);
-                        return { hours, minutes };
+                    let lateCount = 0;
+
+                    const parseTime = (timeString) => {
+                        const parseHourMinute = (time) => {
+                            const [hour, minute] = time.split(':').map(Number);
+                            return hour + minute / 60;
+                        };
+
+                        const [inTime, outTime] = timeString.split(' ').map(parseHourMinute);
+                        return { In: inTime, Out: outTime };
                     };
 
                     const isLate = (time) => {
-                        const { hours, minutes } = parseTime(time);
+                        const { In, Out } = parseTime(time);
                     
                         // Check the first time range: 9:00 - 9:15
-                        if (hours === 9 && minutes >= 0 && minutes <= 15) {
-                            return false;
-                        }
-                        
-                        // Check the second time range: 12:00 - 12:15
-                        if (hours === 18 && minutes >= 0 && minutes <= 15) {
-                            return false;
-                        }
+                        const lateStart = (In >= 9 && In <= 9.25);
                     
-                        return true;
+                        // Check the second time range: 18:00 - 18:15
+                        const lateEnd = (Out >= 18 && Out <= 18.25);
+                    
+                        return lateStart || lateEnd;
                     };
+                    
 
-                    const updatedData = sortedData.map(data => ({
-                        ...data,
-                        status: isLate(data.time) ? 'late' : 'onTime'
-                    }));
+                    // Group the data by Name and LastName
+                    const groupedData = {};
+                    sortedData.forEach(data => {
+                        const key = `${data.Name} ${data.LastName}`;
+                        // console.log(groupedData)
+                        if (!groupedData[key]) {
+                            groupedData[key] = {
+                                lateCount: 0,
+                                entries: []
+                            };
+                        }
+                        groupedData[key].entries.push(data);
+                    });
 
+                    // Calculate late count for each person
+                    Object.keys(groupedData).forEach(key => {
+                        const group = groupedData[key];
+                        group.lateCount = group.entries.reduce((count, entry) => {
+                            if (isLate(entry.Day1)) {
+                                count++;
+                            }
+                            return count;
+                        }, 0);
+                    });
+
+                    // Update the original data with the late count
+                    const updatedData = sortedData.map(data => {
+                        const key = `${data.Name} ${data.LastName}`;
+                        const late = isLate(data.Day1);
+                        const status = groupedData[key].lateCount === 0 ? 'onTime' : `late (${groupedData[key].lateCount})`;
+                        return {
+                            ...data,
+                            status
+                        };
+                    });
+
+                    console.log(updatedData);
                     setData(updatedData);
 
-                    
+
                     setColumns(Object.keys(response.data[0]));
-                    
+
                 } else {
                     console.log("Response is not an array:", response.data);
                 }
