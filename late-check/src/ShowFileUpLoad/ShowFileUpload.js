@@ -37,12 +37,12 @@ function ShowFileUpload() {
                         const { In, Out } = parseTime(time);
                     
                         // Check the first time range: 9:00 - 9:15
-                        const lateStart = (In >= 9 && In <= 9.25);
+                        const lateStart = (In >= 9 && In >= 9.25);
                     
                         // Check the second time range: 18:00 - 18:15
-                        const lateEnd = (Out >= 18 && Out <= 18.25);
+                        const lateEnd = (Out >= 18 && Out >= 18.25);
                     
-                        return lateStart || lateEnd;
+                        return lateStart && lateEnd;
                     };
                     
 
