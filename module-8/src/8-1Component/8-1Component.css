@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #333;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container header {
+    position: sticky;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-color: gray;
+    /* border: 1px solid red; */
+}
+
+.container header .Header-box {
+    height: auto;
+    background-color: green;
+    padding: 1rem;
+}
+
+.container header .Header-box h1 {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: start;
+}
+
+.container header .Header-box #button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background: black; */
+}
+
+.container header .Header-box #button-container div button {
+    height: 4rem;
+    width: 4rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+.record-container h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.record-container form {
+    display: flex;
+    flex-direction: column;
+    /* min-width: 100px; */
+    margin: 1rem;
+}
+
+.record-container form div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: .5rem;
+}
+
+.record-container form label{
+    border: 1px solid white;
+    font-size: 1.5rem;
+    height: 2.5rem;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+
+.record-container form input,
+.record-container form select {
+    height: 2.5rem; /* Set the same fixed height */
+    font-size: 1.5rem; /* Ensure the font size is consistent */
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    margin-right: 10rem;
+    /* width: calc(100% - 10rem); */
+}
