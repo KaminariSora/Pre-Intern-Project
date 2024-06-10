@@ -1,14 +1,23 @@
+:root {
+    --background-linear-gradient: linear-gradient(135deg, rgb(246, 44, 50, .37), rgb(92, 10, 152, .1));
+    --linear-gradient: linear-gradient(180deg, #3498db, white);
+    --linear-gradient-hover: linear-gradient(180deg, #3498db, white);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Prompt', sans-serif
 }
 
 body {
     height: 100vh;
     width: 100vw;
-    background-color: #333;
-    color: white;
+    /* background: linear-gradient(165deg, rgba(246, 44, 50, .37), rgba(92, 10, 152, 0)); */
+    background: url('../../public/Img/blue-gradient-blank-background-business_53876-120508.avif');
+    background-size: cover;
+    /* color: white; */
 }
 
 .container {
@@ -22,14 +31,17 @@ body {
     text-align: center;
     width: 100%;
     height: auto;
-    background-color: gray;
+    /* background-color: gray; */
     /* border: 1px solid red; */
 }
 
 .container header .Header-box {
     height: auto;
-    background-color: green;
+    background: linear-gradient(165deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 32px rgba(0, 0, 0, .37);
     padding: 1rem;
+    z-index: -1;
 }
 
 .container header .Header-box h1 {
@@ -50,13 +62,58 @@ body {
     height: 4rem;
     width: 4rem;
     font-size: 1rem;
-    border: 1px solid black;
-    border-radius: 10%;
+    /* background: var(--linear-gradient); */
+    border: none;
+    background: yellowgreen;
+    border-radius: 15px;
+    margin: 2px;
+    z-index: 0;
+    overflow: hidden;
+    color: white;
+    position: relative;
+}
+
+.container header .Header-box #button-container div button:hover {
+    background: white;
+    color: black;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.container header .Header-box #button-container div button:hover::after {
+    /* background: var(--linear-gradient-hover); */
+    background: yellowgreen;
+    animation: backgroundChange 1s forwards ease-in;
+}
+
+.container header .Header-box #button-container div button::after {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    /* background: var(--linear-gradient); */
+    background: #3498db;
+    border-radius: 10px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    /* transform: translate(50%, 50%); */
+}
+
+@keyframes backgroundChange  {
+    0% {
+        background: var(--linear-gradient-hover);
+        opacity: 0;
+    }
+    100% {
+        background: var(--linear-gradient-hover);
+    }
 }
 
 .record-container h1 {
     font-size: 1.5rem;
     font-weight: normal;
+    margin: 1rem;
 }
 
 .record-container form {
@@ -64,6 +121,10 @@ body {
     flex-direction: column;
     /* min-width: 100px; */
     margin: 1rem;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(165deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, 0));
+    box-shadow: 0 0 32px rgba(0, 0, 0, .37);
+    
 }
 
 .record-container form div {
@@ -74,7 +135,7 @@ body {
 }
 
 .record-container form label{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     font-size: 1.5rem;
     height: 2.5rem;
     padding: 0 0.5rem;

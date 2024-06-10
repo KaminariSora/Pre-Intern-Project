@@ -1,4 +1,9 @@
 function HeaderBox() {
+    const exit = () => {
+        return (
+            window.location.href = '/'
+        )
+    }
     return (
         <div className="Header-box">
                     <h1>Asset Management V.React</h1>
@@ -12,7 +17,7 @@ function HeaderBox() {
                         <div>
                             <button>Cancel</button>
                             <button>Print</button>
-                            <button>Exit</button>
+                            <button onClick={exit}>Exit</button>
                         </div>
                     </div>
                 </div>
