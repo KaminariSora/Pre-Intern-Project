@@ -1,4 +1,5 @@
 import './8-1Component.css'
+import './HeaderBox.css'
 import HeaderBox from './HeaderBox'
 import Form from './form'
 

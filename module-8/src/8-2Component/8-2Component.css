@@ -1,0 +1,41 @@
+.body-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100vw;
+    /* background: green; */
+}
+
+.body-container div.Input-content {
+    border: 1px solid red;
+    width: 50vw;
+    padding: 1rem;
+}
+
+.body-container div.table-content {
+    /* border: 1px solid green; */
+    width: 50%;
+    padding: 1rem;
+}
+
+/* .table-content thead {
+    background: red;
+    width: 500px;
+} */
+
+.table-content th {
+    position: sticky;
+    top: 0;
+    background-color: gray;
+    padding: 8px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    width: 20%;
+}
+
+.table-content td {
+    padding: 8px;
+    text-align: center;
+    background-color: aliceblue;
+    border: 1px solid black;
+}
