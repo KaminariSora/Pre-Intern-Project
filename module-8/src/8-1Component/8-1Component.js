@@ -1,13 +1,14 @@
 import './8-1Component.css'
-import './HeaderBox.css'
-import HeaderBox from './HeaderBox'
+import '../Component/HeaderBox.css'
+import HeaderBox from '../Component/HeaderBox'
+import HeaderBar from '../Component/HeaderBar'
 import Form from './form'
 
 function Component1() {
     return (
         <div className="container">
             <header>
-                <div>Header</div>
+                <HeaderBar/>
                 <HeaderBox/>
             </header>
             <Form />

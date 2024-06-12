@@ -1,5 +1,6 @@
-import HeaderBox from "../8-1Component/HeaderBox"
-import '../8-1Component/HeaderBox.css'
+import HeaderBar from "../Component/HeaderBar"
+import HeaderBox from "../Component/HeaderBox"
+import '../Component/HeaderBox.css'
 import './8-2Component.css'
 
 function Component2() {
@@ -7,12 +8,12 @@ function Component2() {
     return (
         <div className='container'>
             <header>
-                <div>Component2</div>
+                <HeaderBar/>
                 <HeaderBox/>
             </header>
             <div className="body-container">
                 <div className="Input-content">
-                    <label>ชื่อพนักกงาน</label>
+                    <label>ชื่อพนักงาน</label>
                     <select>
                         <option>Name 1</option>
                         <option>Name 2</option>
