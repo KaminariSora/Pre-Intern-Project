@@ -1,4 +1,4 @@
-function HeaderBox() {
+function HeaderBox({ handleSubmit }) {
     const exit = () => {
         return (
             window.location.href = '/'
@@ -7,9 +7,9 @@ function HeaderBox() {
     return (
         <div className="Header-box">
                     <h1>Asset Management V.React</h1>
-                    <div id="button-container">
+                    <form id="button-container">
                         <div>
-                            <button>Add</button>
+                            <button type="submit" onClick={handleSubmit}>Add</button>
                             <button>Edit</button>
                             <button>Delete</button>
                             <button>Save</button>
@@ -19,7 +19,7 @@ function HeaderBox() {
                             <button>Print</button>
                             <button onClick={exit}>Exit</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
     )
 }

@@ -1,4 +1,4 @@
-function Form() {
+const Form = () => {
     return (
         <div className='record-container'>
                 <h1>บันทึกพนักงาน</h1>
