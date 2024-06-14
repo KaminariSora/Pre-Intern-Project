@@ -1,13 +1,8 @@
 import React, { useRef, useState } from 'react';
-import './8-1Component.css'
-import '../Component/HeaderBox.css'
-import HeaderBox from '../Component/HeaderBox'
-import HeaderBar from '../Component/HeaderBar'
-import Form from './form';
-
-const AddTable = (data) => {
-    console.log("Table added with data:", data);
-};
+import './8-1Component.css';
+import '../Component/HeaderBox.css';
+import HeaderBox from '../Component/HeaderBox';
+import HeaderBar from '../Component/HeaderBar';
 
 const Component1 = () => {
     const formRef = useRef(null);
@@ -24,6 +19,8 @@ const Component1 = () => {
         password: ''
     });
 
+    const [tableData, setTableData] = useState([]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -34,8 +31,21 @@ const Component1 = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        AddTable(formData);
+        setTableData([...tableData, formData]);
+        setFormData({
+            employeeCode: '',
+            startDate: '',
+            title: '',
+            fullName: '',
+            department: '',
+            position: '',
+            idNumber: '',
+            contactNumber: '',
+            systemCode: '',
+            password: ''
+        });
     };
+
     return (
         <div className="container">
             <header>
@@ -159,8 +169,40 @@ const Component1 = () => {
                     </div>
                 </form>
             </div>
+            <div className='table-container'>
+                <table className='Table'>
+                    <thead>
+                        <tr>
+                            <th>รหัสพนักงาน</th>
+                            <th>วันที่เริ่มงาน</th>
+                            <th>คำนำหน้าชื่อ</th>
+                            <th>ชื่อ-สกุล</th>
+                            <th>ส่วนงาน</th>
+                            <th>ตำแหน่งงาน</th>
+                            <th>เลขที่บัตรประชาชน</th>
+                            <th>เบอร์ติดต่อ</th>
+                            <th>รหัสการใช้ระบบงาน</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {tableData.map((data, index) => (
+                            <tr key={index}>
+                                <td>{data.employeeCode}</td>
+                                <td>{data.startDate}</td>
+                                <td>{data.title}</td>
+                                <td>{data.fullName}</td>
+                                <td>{data.department}</td>
+                                <td>{data.position}</td>
+                                <td>{data.idNumber}</td>
+                                <td>{data.contactNumber}</td>
+                                <td>{data.systemCode}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
 
-export default Component1
+export default Component1;
