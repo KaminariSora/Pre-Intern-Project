@@ -37,7 +37,7 @@ function HeaderBar() {
                                     <ul className="dropdown-2">
                                         <li><a href='/Component8_3_1'>Outsource</a></li>
                                         <li><a href='/Component8_3_2'>บัญชีเงินฝาก</a></li>
-                                        <li><a>อัตราดอกเบี้ย</a></li>
+                                        <li><a href='/Component8_3_3'>อัตราดอกเบี้ย</a></li>
                                     </ul>
                                 </li>
                                 <li><a>การกำหนดผู้ดูแลลูกหนี้</a></li>
