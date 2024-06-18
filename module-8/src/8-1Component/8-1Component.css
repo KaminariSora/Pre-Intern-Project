@@ -41,7 +41,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: start;
-    margin: .5rem;
+    margin: .1rem;
 }
 
 .record-container form label{
