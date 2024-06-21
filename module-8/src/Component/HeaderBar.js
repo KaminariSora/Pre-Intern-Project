@@ -40,7 +40,7 @@ function HeaderBar() {
                                         <li><a href='/Component8_3_3'>อัตราดอกเบี้ย</a></li>
                                     </ul>
                                 </li>
-                                <li><a>การกำหนดผู้ดูแลลูกหนี้</a></li>
+                                <li><a href='/Component8_4'>การกำหนดผู้ดูแลลูกหนี้</a></li>
                             </ul></li>
                         <li className="listItem"><a>สอบถามและรายงาน</a></li>
                         <li className="listItem"><a>ออกจากระบบ</a></li>

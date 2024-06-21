@@ -182,7 +182,7 @@ function Component3_1() {
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                         </div>
                         <div>
-                            <label>เบอณ์มือถือ</label>
+                            <label>เบอร์มือถือ</label>
                             <input
                                 type="tel"
                                 name="phone"
