@@ -52,11 +52,6 @@
     position: relative;
 }
 
-.container header .Header-box #button-container div button img {
-    width: 70%;
-    height: 70%;
-}
-
 .container header .Header-box #button-container div button:hover {
     background: white;
     color: black;

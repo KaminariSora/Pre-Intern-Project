@@ -1,13 +1,7 @@
 import './HeaderBar.css'
-import { Link } from "react-router-dom";
 import { useState } from 'react';
 
 function HeaderBar() {
-    const imageStyle = {
-        width: "50px",
-        height: "50px",
-        color: "#fff"
-    }
     const [showMenu, setShowMenu] = useState(false);
 
     const ToggleMenu = () => {
@@ -22,11 +16,11 @@ function HeaderBar() {
                     <ul className="navList" type="none">
                         <li className="listItem"><a href='#'>การโอนสิทธิเรียกร้องหนี้</a></li>
                         <li className="listItem"><a href='#'>การบอกกล่าวการโอนสิทธิเรียกร้องในหนี้</a></li>
-                        <li className="listItem"><a>การปรับปรุงโครงสร้างหนี้</a></li>
-                        <li className="listItem"><a>การติดตามหนี้</a></li>
-                        <li className="listItem"><a>การดำเนินการทางกฎหมาย</a></li>
-                        <li className="listItem"><a>การ์ดลูกหนี้ก่อนปรับปรุงโครงสร้างหนี้</a></li>
-                        <li className="listItem"><a>งานสนับสนุน</a></li>
+                        <li className="listItem"><a href='#'>การปรับปรุงโครงสร้างหนี้</a></li>
+                        <li className="listItem"><a href='#'>การติดตามหนี้</a></li>
+                        <li className="listItem"><a href='#'>การดำเนินการทางกฎหมาย</a></li>
+                        <li className="listItem"><a href='#'>การ์ดลูกหนี้ก่อนปรับปรุงโครงสร้างหนี้</a></li>
+                        <li className="listItem"><a href='#'>งานสนับสนุน</a></li>
                         <li className="listItem">
                             <a className="navLink prompt-regular" href="#">การทำงานระบบ</a>
                             <ul className="dropdown">
@@ -42,8 +36,8 @@ function HeaderBar() {
                                 </li>
                                 <li><a href='/Component8_4'>การกำหนดผู้ดูแลลูกหนี้</a></li>
                             </ul></li>
-                        <li className="listItem"><a>สอบถามและรายงาน</a></li>
-                        <li className="listItem"><a>ออกจากระบบ</a></li>
+                        <li className="listItem"><a href='#'>สอบถามและรายงาน</a></li>
+                        <li className="listItem"><a href='#'>ออกจากระบบ</a></li>
                     </ul>
                     <div className="navClose" onClick={ToggleMenu}>
                         
