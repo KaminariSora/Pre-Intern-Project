@@ -1,6 +1,14 @@
+import HeaderBar from "../Component/HeaderBar"
+import HeaderBox from "../Component/HeaderBox"
+
 function Component4() {
     return (
-        <div>Component4</div>
+        <div className="container">
+            <header>
+                <HeaderBar/>
+                <HeaderBox/>
+            </header>
+        </div>
     )
 }
 
