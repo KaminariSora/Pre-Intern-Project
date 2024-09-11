@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Module</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="container">
+    <h1>Upload CSV</h1>
+    <form id="csvForm" enctype="multipart/form-data">
+      <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+  <div id="headerList"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
