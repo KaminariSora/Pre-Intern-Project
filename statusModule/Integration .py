@@ -14,13 +14,11 @@ def upload_csv():
     
     try:
         df = pd.read_csv(file)
-        headers = list(df.columns)
         data = df.to_dict(orient='records')
-        print("using jsonify")
         print(data)
         return jsonify({"data": data})
     except Exception as e:
-        return jsonify({"error": str(e)}), 500  # Return error as JSON
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

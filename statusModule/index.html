@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Status Module</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container" id="container">
     <h1>Upload CSV</h1>
@@ -14,8 +16,21 @@
       <button type="submit">Upload</button>
     </form>
   </div>
-  <div id="headerList"></div>
-  
+  <!-- <div id="headerList"></div> -->
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Position</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+  </table>
+
   <script src="script.js"></script>
+  <script src="displayControl.js"></script>
 </body>
+
 </html>

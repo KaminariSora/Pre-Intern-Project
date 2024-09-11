@@ -48,4 +48,29 @@ body {
     margin-top: 20px;
     font-size: 14px;
   }
-  
+  /* data table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    opacity: 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
