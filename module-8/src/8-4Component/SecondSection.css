@@ -1,0 +1,61 @@
+#record-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.justify-row {
+    width: 100%;
+}
+
+.justify-row span label {
+    display: inline-block;
+    width: 40%;
+}
+
+.justify-row span select {
+    display: inline-block;
+    border: 1px solid black;
+    background: #fff;
+    font-size: 1.5rem;
+    text-align: end;
+    height: 2.5rem;
+    margin-left: auto;
+    min-width: 20%;
+    max-width: 50%;
+    padding: 0 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.input-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid #333;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    color: #333;
+    cursor: text;
+    transition: 0.5s;
+    z-index: -1;
+}
+
+textarea:focus~label,
+textarea:valid~label{
+    left: -200px;
+    background-color: #3498db;
+    color: #fff;
+}
