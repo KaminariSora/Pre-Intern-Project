@@ -1,6 +1,7 @@
-name,LastName,Position,time
-Nonthacha,Huanchitt,Programmer,9:00
-Pimvimon,Putthasen,Designer,9:15
-Natdanai,Kulrachot,Security,9:20
-Naphat,Nuchitprasitchai,Resercher,9:01
-Thitikarn,Worawichaiwat,IT,10:00
+name,LastName,Position,time,new
+Nonthacha,Huanchitt,Programmer,9:00,Testing1
+Pimvimon,Putthasen,Designer,9:15,Testing2
+Natdanai,Kulrachot,Security,9:20,row3
+Naphat,Nuchitprasitchai,Resercher,9:01,test
+Thitikarn,Worawichaiwat,IT,10:00,row5
+นนทชา,หวลจิตต์,IT,10:00,row6

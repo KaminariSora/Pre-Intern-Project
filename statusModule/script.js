@@ -1,41 +1,28 @@
-// script.js
-document.getElementById('csvForm').addEventListener('submit', async function(event) {
-  event.preventDefault();
+document.getElementById('csvForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent the form from submitting the traditional way
 
   const formData = new FormData();
-  const fileInput = document.getElementById('csvFile');
-  formData.append('csvFile', fileInput.files[0]);
+  const fileField = document.getElementById('csvFile');
 
-  const response = await fetch('http://127.0.0.1:5000/upload', {
+  if (!fileField.files.length) {
+    alert('Please select a file first!');
+    return;
+  }
+
+  formData.append('csvFile', fileField.files[0]);
+
+  fetch('http://localhost:5000/upload', {
     method: 'POST',
-    body: formData,
-  });
-
-  const result = await response.json();
-  console.log(result)
-  displayHeaders(result.data);
-});
-
-function displayHeaders(data) {
-    const dataBody = document.getElementById("dataBody");
-
-    if (!Array.isArray(data) || data.length === 0) {
-      tableBody.innerHTML = "<tr><td colspan='4'>No data available</td></tr>";
-      return;
-    }
-
-    console.log(data)
-  
-    data.forEach(item => {
-      const row = document.createElement('tr');
-      
-      row.innerHTML = `
-        <td>${item.name}</td>
-        <td>${item.LastName}</td>
-        <td>${item.Position}</td>
-        <td>${item.time}</td>
-      `;
-      
-      dataBody.appendChild(row);
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        alert('Error: ' + data.error);
+        return;
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
     });
-}
+});

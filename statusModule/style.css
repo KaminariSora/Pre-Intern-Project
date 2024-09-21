@@ -18,6 +18,17 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
+  #hide {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
   
   h1 {
     margin-bottom: 20px;
@@ -58,7 +69,7 @@ body {
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    /* padding: 8px; */
     text-align: left;
 }
 
